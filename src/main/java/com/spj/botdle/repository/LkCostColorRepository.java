@@ -1,13 +1,11 @@
-
-
 package com.spj.botdle.repository;
 
-import com.spj.botdle.entity.TxCardAbility;
+import com.spj.botdle.entity.LkCostColor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TxCardAbilityRepository extends JpaRepository<TxCardAbility, Long> {
+public interface LkCostColorRepository extends JpaRepository<LkCostColor, Long> {
 
 
 
