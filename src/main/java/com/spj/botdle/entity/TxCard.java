@@ -14,23 +14,41 @@ public class TxCard {
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @Column(name = "NAME", nullable = false, length = 50)
-    private String name;
+    @Column(name = "SERIAL_CODE")
+    private String serialCode;
+
+    @Column(name = "NAME_EN", nullable = false, length = 50)
+    private String nameEn;
+
+    @Column(name = "NAME_TH", nullable = false, length = 50)
+    private String nameTh;
+
+    @Column(name = "IS_ONLY_ONE")
+    private Character isOnlyOne;
 
     @Column(name = "LK_TYPE_CODE", length = 20)
     private String lkTypeCode;
 
-    @Column(name = "LK_COLOR_CODE", length = 20)
-    private String lkColorCode;
+    @Column(name = "LK_COST_COLOR_CODE", length = 20)
+    private String lkCostColorCode;
 
     @Column(name = "LK_COST_CODE", length = 20)
     private String lkCostCode;
+
+    @Column(name = "LK_CARD_COLOR", length = 20)
+    private String lkCardColor;
 
     @Column(name = "LK_POWER_CODE", length = 20)
     private String lkPowerCode;
 
     @Column(name = "LK_GEM_CODE", length = 20)
     private String lkGemCode;
+
+    @Column(name = "LK_PACK_CODE", length = 20)
+    private String lkPackCode;
+
+    @Column(name = "LK_SOI_CODE", length = 20)
+    private String lkSoiCode;
 
     @Column(name = "FULL_ABILITY", length = 1000)
     private String fullAbility;
@@ -58,12 +76,36 @@ public class TxCard {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getSerialCode() {
+        return serialCode;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSerialCode(String serialCode) {
+        this.serialCode = serialCode;
+    }
+
+    public String getNameEn() {
+        return nameEn;
+    }
+
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
+    }
+
+    public String getNameTh() {
+        return nameTh;
+    }
+
+    public void setNameTh(String nameTh) {
+        this.nameTh = nameTh;
+    }
+
+    public Character getIsOnlyOne() {
+        return isOnlyOne;
+    }
+
+    public void setIsOnlyOne(Character isOnlyOne) {
+        this.isOnlyOne = isOnlyOne;
     }
 
     public String getLkTypeCode() {
@@ -74,12 +116,12 @@ public class TxCard {
         this.lkTypeCode = lkTypeCode;
     }
 
-    public String getLkColorCode() {
-        return lkColorCode;
+    public String getLkCostColorCode() {
+        return lkCostColorCode;
     }
 
-    public void setLkColorCode(String lkColorCode) {
-        this.lkColorCode = lkColorCode;
+    public void setLkCostColorCode(String lkCostColorCode) {
+        this.lkCostColorCode = lkCostColorCode;
     }
 
     public String getLkCostCode() {
@@ -88,6 +130,14 @@ public class TxCard {
 
     public void setLkCostCode(String lkCostCode) {
         this.lkCostCode = lkCostCode;
+    }
+
+    public String getLkCardColor() {
+        return lkCardColor;
+    }
+
+    public void setLkCardColor(String lkCardColor) {
+        this.lkCardColor = lkCardColor;
     }
 
     public String getLkPowerCode() {
@@ -104,6 +154,22 @@ public class TxCard {
 
     public void setLkGemCode(String lkGemCode) {
         this.lkGemCode = lkGemCode;
+    }
+
+    public String getLkPackCode() {
+        return lkPackCode;
+    }
+
+    public void setLkPackCode(String lkPackCode) {
+        this.lkPackCode = lkPackCode;
+    }
+
+    public String getLkSoiCode() {
+        return lkSoiCode;
+    }
+
+    public void setLkSoiCode(String lkSoiCode) {
+        this.lkSoiCode = lkSoiCode;
     }
 
     public String getFullAbility() {

@@ -8,8 +8,8 @@ import jakarta.persistence.Table;
 import java.time.Instant;
 
 @Entity
-@Table(name = "lk_type")
-public class LkType {
+@Table(name = "lk_cost_color")
+public class LkCostColor {
     @Id
     @Column(name = "ID", nullable = false)
     private Long id;
@@ -22,6 +22,9 @@ public class LkType {
 
     @Column(name = "NAME_TH", length = 50)
     private String nameTh;
+
+    @Column(name = "COLOR_CODE", length = 50)
+    private String colorCode;
 
     @Column(name = "RECORD_STATUS", nullable = false)
     private Character recordStatus;
@@ -68,6 +71,14 @@ public class LkType {
 
     public void setNameTh(String nameTh) {
         this.nameTh = nameTh;
+    }
+
+    public String getColorCode() {
+        return colorCode;
+    }
+
+    public void setColorCode(String colorCode) {
+        this.colorCode = colorCode;
     }
 
     public Character getRecordStatus() {

@@ -14,7 +14,8 @@
             <column name="CODE" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
             <column name="RECORD_STATUS" type="CHAR(1)">
                 <constraints nullable="false"/>
             </column>
@@ -32,14 +33,43 @@
             </column>
         </createTable>
 
-        <createTable tableName="LK_COLOR">
+        <createTable tableName="LK_COST_COLOR">
             <column name="ID" type="BIGINT" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="PK_LK_COLOR"/>
+                <constraints primaryKey="true" primaryKeyName="PK_LK_COST_COLOR"/>
             </column>
             <column name="CODE" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
+            <column name="COLOR_CODE" type="VARCHAR(50)"/>
+            <column name="RECORD_STATUS" type="CHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_AT" type="DATETIME ">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_AT" type="DATETIME ">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="LK_CARD_COLOR">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="PK_LK_COST_COLOR"/>
+            </column>
+            <column name="CODE" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
+            <column name="COLOR_CODE" type="VARCHAR(50)"/>
             <column name="RECORD_STATUS" type="CHAR(1)">
                 <constraints nullable="false"/>
             </column>
@@ -64,7 +94,8 @@
             <column name="CODE" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
             <column name="RECORD_STATUS" type="CHAR(1)">
                 <constraints nullable="false"/>
             </column>
@@ -89,7 +120,8 @@
             <column name="CODE" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
             <column name="RECORD_STATUS" type="CHAR(1)">
                 <constraints nullable="false"/>
             </column>
@@ -114,7 +146,8 @@
             <column name="CODE" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
             <column name="RECORD_STATUS" type="CHAR(1)">
                 <constraints nullable="false"/>
             </column>
@@ -139,7 +172,8 @@
             <column name="CODE" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
             <column name="RECORD_STATUS" type="CHAR(1)">
                 <constraints nullable="false"/>
             </column>
@@ -164,7 +198,8 @@
             <column name="CODE" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
             <column name="RECORD_STATUS" type="CHAR(1)">
                 <constraints nullable="false"/>
             </column>
@@ -182,9 +217,6 @@
             </column>
         </createTable>
 
-    </changeSet>
-
-    <changeSet id="0002" author="rutt">
         <createTable tableName="LK_PACK">
             <column name="ID" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="PK_LK_PACK"/>
@@ -192,7 +224,8 @@
             <column name="CODE" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
             <column name="RECORD_STATUS" type="CHAR(1)">
                 <constraints nullable="false"/>
             </column>
@@ -217,7 +250,8 @@
             <column name="CODE" type="VARCHAR(20)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)"/>
+            <column name="NAME_EN" type="VARCHAR(50)"/>
+            <column name="NAME_TH" type="VARCHAR(50)"/>
             <column name="RECORD_STATUS" type="CHAR(1)">
                 <constraints nullable="false"/>
             </column>
@@ -237,19 +271,27 @@
 
     </changeSet>
 
-    <changeSet id="0003" author="rutt">
+    <changeSet id="0002" author="rutt">
         <createTable tableName="TX_CARD">
             <column name="ID" type="BIGINT" autoIncrement="true">
                 <constraints primaryKey="true" primaryKeyName="PK_TX_CARD"/>
             </column>
-            <column name="NAME" type="VARCHAR(50)">
+            <column name="SERIAL_CODE" type="varchar(255)"/>
+            <column name="NAME_EN" type="VARCHAR(50)">
                 <constraints nullable="false"/>
             </column>
+            <column name="NAME_TH" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_ONLY_ONE" type="CHAR(1)"/>
             <column name="LK_TYPE_CODE" type="VARCHAR(20)"/>
-            <column name="LK_COLOR_CODE" type="VARCHAR(20)"/>
+            <column name="LK_COST_COLOR_CODE" type="VARCHAR(20)"/>
             <column name="LK_COST_CODE" type="VARCHAR(20)"/>
+            <column name="LK_CARD_COLOR" type="VARCHAR(20)"/>
             <column name="LK_POWER_CODE" type="VARCHAR(20)"/>
             <column name="LK_GEM_CODE" type="VARCHAR(20)"/>
+            <column name="LK_PACK_CODE" type="VARCHAR(20)"/>
+            <column name="LK_SOI_CODE" type="VARCHAR(20)"/>
 
             <column name="FULL_ABILITY" type="VARCHAR(1000)"/>
 
@@ -296,6 +338,1168 @@
             </column>
         </createTable>
 
+        <createTable tableName="TX_CARD_SYMBOL">
+            <column name="ID" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="PK_TX_CARD_ABILITY"/>
+            </column>
+            <column name="TX_CARD_ID" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="LK_SYMBOL_CODE" type="VARCHAR(20)"/>
+
+            <column name="RECORD_STATUS" type="CHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_AT" type="DATETIME ">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_AT" type="DATETIME ">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
     </changeSet>
 
+    <changeSet id="0003" author="rutt">
+        <insert tableName="LK_TYPE">
+            <column name="CODE" value="A" />
+            <column name="NAME_EN" value="Avatar" />
+            <column name="NAME_TH" value="อวาตาร์" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_TYPE">
+            <column name="CODE" value="M" />
+            <column name="NAME_EN" value="Magic" />
+            <column name="NAME_EN" value="เวทมนตร์ " />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_TYPE">
+            <column name="CODE" value="L" />
+            <column name="NAME_EN" value="Life" />
+            <column name="NAME_TH" value="ชีวิต" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_TYPE">
+            <column name="CODE" value="C" />
+            <column name="NAME_EN" value="Construct" />
+            <column name="NAME_TH" value="สิ่งก่อสร้าง" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="0004" author="rutt">
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="OIT" />
+            <column name="NAME_EN" value="Once In Turn" />
+            <column name="NAME_TH" value="เทรินละครั้ง" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="ONGOING" />
+            <column name="NAME_EN" value="ONGOING" />
+            <column name="NAME_TH" value="ต่อเนื่อง" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="SPY" />
+            <column name="NAME_EN" value="SPY" />
+            <column name="NAME_TH" value="สอดแนม" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="FIT" />
+            <column name="NAME_EN" value="FIT" />
+            <column name="NAME_TH" value="พอดี" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="OTU" />
+            <column name="NAME_EN" value="Order To Use" />
+            <column name="NAME_TH" value="สั่งใช้" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="SL" />
+            <column name="NAME_EN" value="Stop Living" />
+            <column name="NAME_TH" value="จุติ" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="DET" />
+            <column name="NAME_EN" value="Determination" />
+            <column name="NAME_TH" value="ลูกฮึด" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="ASM" />
+            <column name="NAME_EN" value="Admonish" />
+            <column name="NAME_TH" value="คำสั่งเสีย" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="AUTO" />
+            <column name="NAME_EN" value="Automatic" />
+            <column name="NAME_TH" value="อัตโนมัติ" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="ES" />
+            <column name="NAME_EN" value="Earth Sucking" />
+            <column name="NAME_TH" value="ธรณีสูบ" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="HS" />
+            <column name="NAME_EN" value="Human Shield" />
+            <column name="NAME_TH" value="โล่ห์มนุษย์" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="UNITE" />
+            <column name="NAME_EN" value="Unite" />
+            <column name="NAME_TH" value="สามัคคี" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+        <insert tableName="LK_ABILITY">
+            <column name="CODE" value="KTB" />
+            <column name="NAME_EN" value="Kick The Balls" />
+            <column name="NAME_TH" value="เตะไข่" />
+            <column name="RECORD_STATUS" value="Y" />
+            <column name="CREATED_BY" value="0" />
+            <column name="CREATED_AT"  valueDate="NOW()" />
+            <column name="UPDATED_BY" value="0" />
+            <column name="UPDATED_AT"  valueDate="NOW()" />
+        </insert>
+
+    </changeSet>
+
+    <changeSet id="0005" author="rutt">
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="GOD"/>
+            <column name="NAME_EN" value="God"/>
+            <column name="NAME_TH" value="เทพ"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="GIA"/>
+            <column name="NAME_EN" value="Giant"/>
+            <column name="NAME_TH" value="ยักษ์"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="WIZ"/>
+            <column name="NAME_EN" value="Wizard"/>
+            <column name="NAME_TH" value="จอมเวทย์"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="NON"/>
+            <column name="NAME_EN" value="None"/>
+            <column name="NAME_TH" value="ไม่มี"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="HUM"/>
+            <column name="NAME_EN" value="Human"/>
+            <column name="NAME_TH" value="คน"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="INS"/>
+            <column name="NAME_EN" value="Insect"/>
+            <column name="NAME_TH" value="แมลง"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="ANI"/>
+            <column name="NAME_EN" value="Animal"/>
+            <column name="NAME_TH" value="สัตว์"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="RAT"/>
+            <column name="NAME_EN" value="Rattatoui"/>
+            <column name="NAME_TH" value="รัททาทุย"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="HEL"/>
+            <column name="NAME_EN" value="Hell"/>
+            <column name="NAME_TH" value="นรก"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="GHO"/>
+            <column name="NAME_EN" value="Ghost"/>
+            <column name="NAME_TH" value="ผี"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="MAC"/>
+            <column name="NAME_EN" value="Machine"/>
+            <column name="NAME_TH" value="เครื่องจักร"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="STR"/>
+            <column name="NAME_EN" value="Strategy"/>
+            <column name="NAME_TH" value="กลยุทธ์"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="FIS"/>
+            <column name="NAME_EN" value="Fish"/>
+            <column name="NAME_TH" value="ปลา"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="ROB"/>
+            <column name="NAME_EN" value="Robot"/>
+            <column name="NAME_TH" value="หุ่นยนต์"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="PRE"/>
+            <column name="NAME_EN" value="Preta"/>
+            <column name="NAME_TH" value="เปรต"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="WAR"/>
+            <column name="NAME_EN" value="Warrior"/>
+            <column name="NAME_TH" value="นัก"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="STR"/>
+            <column name="NAME_EN" value="Strategy"/>
+            <column name="NAME_TH" value="กลยุทธ"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="FOR"/>
+            <column name="NAME_EN" value="Forest"/>
+            <column name="NAME_TH" value="ป่า"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="HER"/>
+            <column name="NAME_EN" value="Hermit's Spell"/>
+            <column name="NAME_TH" value="คาถาฤาษี"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="ALI"/>
+            <column name="NAME_EN" value="Alien"/>
+            <column name="NAME_TH" value="เอเลี่ยน"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="HER"/>
+            <column name="NAME_EN" value="Hermit"/>
+            <column name="NAME_TH" value="ฤษี"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="TRE"/>
+            <column name="NAME_EN" value="Tree"/>
+            <column name="NAME_TH" value="ต้นไม้"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="HER"/>
+            <column name="NAME_EN" value="Hermit's Spell"/>
+            <column name="NAME_TH" value="คาถาฤษี"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="CHA"/>
+            <column name="NAME_EN" value="Chameleon"/>
+            <column name="NAME_TH" value="กะปอม"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="FOR"/>
+            <column name="NAME_EN" value="Foreigner"/>
+            <column name="NAME_TH" value="ชาวต่างชาติ"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="HER"/>
+            <column name="NAME_EN" value="Hermit"/>
+            <column name="NAME_TH" value="ฤๅษี"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="CHA"/>
+            <column name="NAME_EN" value="Chameleon"/>
+            <column name="NAME_TH" value="กระปอม"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="MYT"/>
+            <column name="NAME_EN" value="Mythical Creature"/>
+            <column name="NAME_TH" value="สัตว์มหัศจรรย์"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="MIL"/>
+            <column name="NAME_EN" value="Military Strategy"/>
+            <column name="NAME_TH" value="กลยุททหาร"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="HER"/>
+            <column name="NAME_EN" value="Hermit"/>
+            <column name="NAME_TH" value="ฤาษี"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="STR"/>
+            <column name="NAME_EN" value="Structure"/>
+            <column name="NAME_TH" value="สิ่งก่อสร้าง"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="ENT"/>
+            <column name="NAME_EN" value="Entity"/>
+            <column name="NAME_TH" value="ตน"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_SYMBOL">
+            <column name="CODE" value="FOR"/>
+            <column name="NAME_EN" value="Foreign"/>
+            <column name="NAME_TH" value="ต่างชาติ"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0006" author="rutt">
+        <insert tableName="LK_COST">
+            <column name="CODE" value="006"/>
+            <column name="NAME_EN" value="6"/>
+            <column name="NAME_TH" value="6"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="004"/>
+            <column name="NAME_EN" value="4"/>
+            <column name="NAME_TH" value="4"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="002"/>
+            <column name="NAME_EN" value="2"/>
+            <column name="NAME_TH" value="2"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="001"/>
+            <column name="NAME_EN" value="1"/>
+            <column name="NAME_TH" value="1"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="003"/>
+            <column name="NAME_EN" value="3"/>
+            <column name="NAME_TH" value="3"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="000"/>
+            <column name="NAME_EN" value="0"/>
+            <column name="NAME_TH" value="0"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="005"/>
+            <column name="NAME_EN" value="5"/>
+            <column name="NAME_TH" value="5"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="MOD"/>
+            <column name="NAME_EN" value="Modification"/>
+            <column name="NAME_TH" value="Modification"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="REA"/>
+            <column name="NAME_EN" value="React"/>
+            <column name="NAME_TH" value="React"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="NOR"/>
+            <column name="NAME_EN" value="Normal"/>
+            <column name="NAME_TH" value="Normal"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="LAN"/>
+            <column name="NAME_EN" value="Land"/>
+            <column name="NAME_TH" value="Land"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="008"/>
+            <column name="NAME_EN" value="8"/>
+            <column name="NAME_TH" value="8"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="009"/>
+            <column name="NAME_EN" value="9"/>
+            <column name="NAME_TH" value="9"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="007"/>
+            <column name="NAME_EN" value="7"/>
+            <column name="NAME_TH" value="7"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST">
+            <column name="CODE" value="010"/>
+            <column name="NAME_EN" value="10"/>
+            <column name="NAME_TH" value="10"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0007" author="rutt">
+        <insert tableName="LK_COST_COLOR">
+            <column name="CODE" value="RED"/>
+            <column name="NAME_EN" value="Red"/>
+            <column name="NAME_TH" value="แดง"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST_COLOR">
+            <column name="CODE" value="WHI"/>
+            <column name="NAME_EN" value="White"/>
+            <column name="NAME_TH" value="ขาว"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST_COLOR">
+            <column name="CODE" value="BLU"/>
+            <column name="NAME_EN" value="Blue"/>
+            <column name="NAME_TH" value="ฟ้า"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST_COLOR">
+            <column name="CODE" value="PUR"/>
+            <column name="NAME_EN" value="Purple"/>
+            <column name="NAME_TH" value="ม่วง"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+        <insert tableName="LK_COST_COLOR">
+            <column name="CODE" value="GRE"/>
+            <column name="NAME_EN" value="Green"/>
+            <column name="NAME_TH" value="เขียว"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" valueNumeric="0"/>
+            <column name="CREATED_AT" valueDate="NOW()"/>
+            <column name="UPDATED_BY" valueNumeric="0"/>
+            <column name="UPDATED_AT" valueDate="NOW()"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0008" author="rutt">
+        <insert tableName="LK_GEM">
+            <column name="CODE" value="TWO"/>
+            <column name="NAME_EN" value="2"/>
+            <column name="NAME_TH" value="2"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_GEM">
+            <column name="CODE" value="ONE"/>
+            <column name="NAME_EN" value="1"/>
+            <column name="NAME_TH" value="1"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_GEM">
+            <column name="CODE" value="FOU"/>
+            <column name="NAME_EN" value="4"/>
+            <column name="NAME_TH" value="4"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_GEM">
+            <column name="CODE" value="ZER"/>
+            <column name="NAME_EN" value="0"/>
+            <column name="NAME_TH" value="0"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_GEM">
+            <column name="CODE" value="THR"/>
+            <column name="NAME_EN" value="3"/>
+            <column name="NAME_TH" value="3"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_GEM">
+            <column name="CODE" value="NON"/>
+            <column name="NAME_EN" value="None"/>
+            <column name="NAME_TH" value="ไม่มี"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0009" author="rutt">
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="BT01"/>
+            <column name="NAME_EN" value="BT01"/>
+            <column name="NAME_TH" value="BT01"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="BT02"/>
+            <column name="NAME_EN" value="BT02"/>
+            <column name="NAME_TH" value="BT02"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="BT03"/>
+            <column name="NAME_EN" value="BT03"/>
+            <column name="NAME_TH" value="BT03"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="BT04"/>
+            <column name="NAME_EN" value="BT04"/>
+            <column name="NAME_TH" value="BT04"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="BT05"/>
+            <column name="NAME_EN" value="BT05"/>
+            <column name="NAME_TH" value="BT05"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="BT06"/>
+            <column name="NAME_EN" value="BT06"/>
+            <column name="NAME_TH" value="BT06"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="BT07"/>
+            <column name="NAME_EN" value="BT07"/>
+            <column name="NAME_TH" value="BT07"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="SD01"/>
+            <column name="NAME_EN" value="SD01"/>
+            <column name="NAME_TH" value="SD01"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="SD02"/>
+            <column name="NAME_EN" value="SD02"/>
+            <column name="NAME_TH" value="SD02"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="SD03"/>
+            <column name="NAME_EN" value="SD03"/>
+            <column name="NAME_TH" value="SD03"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="SD04"/>
+            <column name="NAME_EN" value="SD04"/>
+            <column name="NAME_TH" value="SD04"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="SD05"/>
+            <column name="NAME_EN" value="SD05"/>
+            <column name="NAME_TH" value="SD05"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="SD06"/>
+            <column name="NAME_EN" value="SD06"/>
+            <column name="NAME_TH" value="SD06"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_PACK">
+            <column name="CODE" value="SD07"/>
+            <column name="NAME_EN" value="SD07"/>
+            <column name="NAME_TH" value="SD07"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0010" author="rutt">
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="ZER"/>
+            <column name="NAME_EN" value="0"/>
+            <column name="NAME_TH" value="0"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="ONE"/>
+            <column name="NAME_EN" value="1"/>
+            <column name="NAME_TH" value="1"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="TWO"/>
+            <column name="NAME_EN" value="2"/>
+            <column name="NAME_TH" value="2"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="THR"/>
+            <column name="NAME_EN" value="3"/>
+            <column name="NAME_TH" value="3"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="FOU"/>
+            <column name="NAME_EN" value="4"/>
+            <column name="NAME_TH" value="4"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="FIV"/>
+            <column name="NAME_EN" value="5"/>
+            <column name="NAME_TH" value="5"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="SIX"/>
+            <column name="NAME_EN" value="6"/>
+            <column name="NAME_TH" value="6"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="SEV"/>
+            <column name="NAME_EN" value="7"/>
+            <column name="NAME_TH" value="7"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="EIG"/>
+            <column name="NAME_EN" value="8"/>
+            <column name="NAME_TH" value="8"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="NIN"/>
+            <column name="NAME_EN" value="9"/>
+            <column name="NAME_TH" value="9"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_POWER">
+            <column name="CODE" value="NON"/>
+            <column name="NAME_EN" value="None"/>
+            <column name="NAME_TH" value="ไม่มี"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0011" author="rutt">
+        <insert tableName="LK_CARD_COLOR">
+            <column name="CODE" value="WHI"/>
+            <column name="NAME_EN" value="White"/>
+            <column name="NAME_TH" value="ขาว"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_CARD_COLOR">
+            <column name="CODE" value="GRE"/>
+            <column name="NAME_EN" value="Green"/>
+            <column name="NAME_TH" value="เขียว"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_CARD_COLOR">
+            <column name="CODE" value="RED"/>
+            <column name="NAME_EN" value="Red"/>
+            <column name="NAME_TH" value="แดง"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_CARD_COLOR">
+            <column name="CODE" value="BLU"/>
+            <column name="NAME_EN" value="Blue"/>
+            <column name="NAME_TH" value="ฟ้า"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_CARD_COLOR">
+            <column name="CODE" value="PUR"/>
+            <column name="NAME_EN" value="Purple"/>
+            <column name="NAME_TH" value="ม่วง"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="0012" author="rutt">
+        <insert tableName="LK_SOI">
+            <column name="CODE" value="ONE"/>
+            <column name="NAME_EN" value="1"/>
+            <column name="NAME_TH" value="1"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_SOI">
+            <column name="CODE" value="TWO"/>
+            <column name="NAME_EN" value="2"/>
+            <column name="NAME_TH" value="2"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+        <insert tableName="LK_SOI">
+            <column name="CODE" value="THR"/>
+            <column name="NAME_EN" value="3"/>
+            <column name="NAME_TH" value="3"/>
+            <column name="RECORD_STATUS" value="Y"/>
+            <column name="CREATED_BY" value="0"/>
+            <column name="CREATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+            <column name="UPDATED_BY" value="0"/>
+            <column name="UPDATED_AT" valueComputed="CURRENT_TIMESTAMP"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

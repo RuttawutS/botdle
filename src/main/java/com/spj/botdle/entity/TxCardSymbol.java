@@ -8,20 +8,17 @@ import jakarta.persistence.Table;
 import java.time.Instant;
 
 @Entity
-@Table(name = "lk_type")
-public class LkType {
+@Table(name = "tx_card_symbol")
+public class TxCardSymbol {
     @Id
     @Column(name = "ID", nullable = false)
     private Long id;
 
-    @Column(name = "CODE", nullable = false, length = 20)
-    private String code;
+    @Column(name = "TX_CARD_ID", nullable = false)
+    private Long txCardId;
 
-    @Column(name = "NAME_EN", length = 50)
-    private String nameEn;
-
-    @Column(name = "NAME_TH", length = 50)
-    private String nameTh;
+    @Column(name = "LK_SYMBOL_CODE", length = 20)
+    private String lkSymbolCode;
 
     @Column(name = "RECORD_STATUS", nullable = false)
     private Character recordStatus;
@@ -46,28 +43,20 @@ public class LkType {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public Long getTxCardId() {
+        return txCardId;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setTxCardId(Long txCardId) {
+        this.txCardId = txCardId;
     }
 
-    public String getNameEn() {
-        return nameEn;
+    public String getLkSymbolCode() {
+        return lkSymbolCode;
     }
 
-    public void setNameEn(String nameEn) {
-        this.nameEn = nameEn;
-    }
-
-    public String getNameTh() {
-        return nameTh;
-    }
-
-    public void setNameTh(String nameTh) {
-        this.nameTh = nameTh;
+    public void setLkSymbolCode(String lkSymbolCode) {
+        this.lkSymbolCode = lkSymbolCode;
     }
 
     public Character getRecordStatus() {

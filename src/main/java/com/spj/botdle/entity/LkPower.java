@@ -17,8 +17,11 @@ public class LkPower {
     @Column(name = "CODE", nullable = false, length = 20)
     private String code;
 
-    @Column(name = "NAME", length = 50)
-    private String name;
+    @Column(name = "NAME_EN", length = 50)
+    private String nameEn;
+
+    @Column(name = "NAME_TH", length = 50)
+    private String nameTh;
 
     @Column(name = "RECORD_STATUS", nullable = false)
     private Character recordStatus;
@@ -51,12 +54,20 @@ public class LkPower {
         this.code = code;
     }
 
-    public String getName() {
-        return name;
+    public String getNameEn() {
+        return nameEn;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameEn(String nameEn) {
+        this.nameEn = nameEn;
+    }
+
+    public String getNameTh() {
+        return nameTh;
+    }
+
+    public void setNameTh(String nameTh) {
+        this.nameTh = nameTh;
     }
 
     public Character getRecordStatus() {
